@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Tower Defense AR</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Marcellus&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Model-Viewer -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+</head>
+<body class="theme-standard">
+
+    <!-- Golden Wipe Transition Layer -->
+    <div id="golden-wipe"></div>
+
+    <!-- 3D Model Viewer -->
+    <model-viewer 
+        id="tower-viewer" 
+        src="assets/BombTower1.glb" 
+        camera-controls 
+        auto-rotate 
+        shadow-intensity="2"
+        exposure="1.0"
+        environment-image="neutral"
+        min-camera-orbit="auto auto 5%"
+        max-camera-orbit="auto auto 200%">
+    </model-viewer>
+
+    <!-- Panel Statistik (Kiri) -->
+    <div id="stats-panel" class="panel-left">
+        <div class="panel-handle">
+            <span>&#9654;</span> STATS
+        </div>
+        <div class="panel-content">
+            <h2>Kondisi Menara</h2>
+            <div class="stat-row">
+                <span class="stat-label">Health:</span>
+                <span id="stat-hp" class="stat-value">1500</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Attack Rate:</span>
+                <span id="stat-atk" class="stat-value">1.2s</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Blunt Damage:</span>
+                <span id="stat-dmg" class="stat-value">253</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Resist (Fire):</span>
+                <span id="stat-res" class="stat-value">40%</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Weakness (Ice):</span>
+                <span id="stat-weak" class="stat-value">150%</span>
+            </div>
+            <div class="stat-row attr-row">
+                <span class="stat-label">Attribute:</span>
+                <span id="stat-attr" class="stat-value attr-none">Tidak Ada</span>
+                <div id="attr-icons" class="hidden">
+                    <div class="attr-icon" title="Explosive Radius 15%">
+                        <svg viewBox="0 0 24 24" fill="var(--elite-text)"><path d="M11,2V4.07A8.05,8.05,0,0,0,4.07,11H2v2H4.07A8.05,8.05,0,0,0,11,19.93V22h2V19.93A8.05,8.05,0,0,0,19.93,13H22V11H19.93A8.05,8.05,0,0,0,13,4.07V2H11M12,6A6,6,0,0,1,18,12A6,6,0,0,1,12,18A6,6,0,0,1,6,12A6,6,0,0,1,12,6Z"/></svg>
+                        <span>15%</span>
+                    </div>
+                    <div class="attr-icon" title="Crater 50%">
+                        <svg viewBox="0 0 24 24" fill="var(--elite-text)"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6C8.69,6 6,8.69 6,12C6,15.31 8.69,18 12,18C15.31,18 18,15.31 18,12C18,8.69 15.31,6 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/></svg>
+                        <span>50%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panel Kontrol (Kanan) -->
+    <div id="controls-panel" class="panel-right">
+        <h1>ARSENAL</h1>
+        <div class="control-group">
+            <button id="btn-standard" class="btn btn-gold shiny">Skin Biasa</button>
+            <button id="btn-elite" class="btn btn-purple shiny">Skin Elite</button>
+        </div>
+        
+        <div class="wireframe-module">
+            <h3>Visualisasi Matrix</h3>
+            <button id="btn-wireframe" class="btn btn-neon shiny">Toggle Wireframe</button>
+            
+            <div id="wireframe-options" class="sub-buttons disabled">
+                <button class="btn btn-sub shiny" data-mode="vertex">Vertex</button>
+                <button class="btn btn-sub shiny" data-mode="edge">Edge</button>
+                <button class="btn btn-sub shiny" data-mode="face">Face</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Watermark -->
+    <div id="watermark">&copy; MUHAMMAD RISQIE SYAWAL KHAIRI 9A</div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+</html>
